@@ -98,10 +98,10 @@ Miku.ev.on('groups.update', async pea => {
         if (pea[0].announce == true) {
         //Miku.send5ButImg(pea[0].id, `Grop has been *Closed!* Only *Admins* can send Messages!`, `Miku Bot`, wm_fatih, [])
 
-        Miku.sendMessage(m.chat, { image: wm_fatih, caption: 'Grop has been *Closed!* Only *Admins* can send Messages!'})
+        Miku.sendMessage(m.chat, { image: wm_fatih, caption: 'تم قفل الجروب'})
         } else if(pea[0].announce == false) {
        // Miku.send5ButImg(pea[0].id, `Grop has been *Opened!* Now *Everyone* can send Messages!`, `Miku Bot`, wm_fatih, [])
-       Miku.sendMessage(m.chat, { image: wm_fatih, caption: 'Grop has been *Opened!* Now *Everyone* can send Messages!'})
+       Miku.sendMessage(m.chat, { image: wm_fatih, caption: 'تم فتح الجروب'})
         } else if (pea[0].restrict == true) {
         //Miku.send5ButImg(pea[0].id, `Group Info modification has been *Restricted*, Now only *Admins* can edit Group Info !`, `Miku Bot`, wm_fatih, [])
         Miku.sendMessage(m.chat, { image: wm_fatih, caption: 'Group Info modification has been *Restricted*, Now only *Admins* can edit Group Info !'})
@@ -134,7 +134,7 @@ Miku.ev.on('group-participants.update', async (anu) => {
                 try {
                     ppuser = await Miku.profilePictureUrl(num, 'image')
                 } catch {
-                    ppuser = 'https://wallpapercave.com/wp/wp10753770.jpg'
+                    ppuser = 'https://wallpapercave.com/wp/wp7531478.jpg'
                 }
 
                 try {
@@ -150,16 +150,16 @@ Miku.ev.on('group-participants.update', async (anu) => {
                 if (anu.action == 'add') {
                 let WAuserName = num
                 mikutext = `
-Hello @${WAuserName.split("@")[0]},
+مرحبا @${WAuserName.split("@")[0]},
 
-I am *Miku Nakano*, Welcome to ${metadata.subject}.
+نورتنا ف نقابتنا ${metadata.subject}.
 
-*Group Description:*
+
 ${metadata.desc}
 `
 
     let buttonMessage = {
-    image: await getBuffer(ppgroup),
+    image: await getBuffer(ppuser),
     mentions: [num],
     caption: mikutext,
     footer: `${global.BotName}`,
@@ -169,9 +169,9 @@ Miku.sendMessage(anu.id, buttonMessage)
                 } else if (anu.action == 'remove') {
                 	let WAuserName = num
                     mikutext = `
-Sayonara 👋, @${WAuserName.split("@")[0]},
+سايونارا 👋, @${WAuserName.split("@")[0]},
 
-I hope you will come back soon, but we are not going to miss you though!
+
 `
 
     let buttonMessage = {
